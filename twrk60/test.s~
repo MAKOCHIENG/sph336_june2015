@@ -13,9 +13,9 @@
 
 
 .equ LEDS, 1<<11 | 1<<28 | 1<<29 | 1<<10	//declare the all LEDS mask
-.equ LED1, 1<<11	//For declaring LED1 mask
+.equ LED1, 1<<11	//declare LED1 mask
 .equ LED2, 1<<28	//declare LED2 mask
-.equ LED3, 1<<29	//declare LED3 mask
+.equ LED2, 1<<29	//declare LED3 mask
 .equ LED4, 1<<10	//declare LED4 mask
 
 .global toggle_LEDS
