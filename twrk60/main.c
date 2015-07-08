@@ -50,8 +50,7 @@ void display_tmp(uint8_t data){
 .equ LED1, 1<<11	//declare LED1 mask
 .equ LED2, 1<<28	//declare LED2 mask
 .equ LED3, 1<<29	//declare LED3 mask
-.equ LED4, 1<<10	//declare LED4 mask
-*/
+.equ LED4, 1<<10	//declare LED4 mask*/
 	
 	 
         //byte>>27(byte>>2&1)	
