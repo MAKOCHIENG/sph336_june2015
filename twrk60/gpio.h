@@ -1,8 +1,8 @@
 /*
  * gpio.h
  *
- *  Created on: Mar 2, 2015
- *      Author: karibe
+ * Copyright (c) 2015 David Muriuki
+ * see the LICENCE file
  */
 
 #ifndef GPIO_H_
@@ -12,11 +12,13 @@
 #include "main.h"
 
 void gpio_init(void);
+
 extern void toggle_LEDS(void);
 extern void toggle_LED1(void);
 extern void toggle_LED2(void);
 extern void toggle_LED3(void);
 extern void toggle_LED4(void);
+extern void puts(uint8_t *s);
 extern void SystemInit(void);
 /*
 	brief PORTA initialization
@@ -33,13 +35,23 @@ void gpio_init(void)
 	PA->PCR[11].mux = 0x01;
 	PA->PCR[28].mux = 0x01;
 	PA->PCR[29].mux = 0x01;
-	//GPIO port data direction Port A as output for LEDs (pin 11, 28, 29 and 10)
+	//PTE8 and PTE9 as UART5
+	PE->PCR[8].mux = 0x0;	//clear default function
+	PE->PCR[9].mux = 0x0;	//clear default function
+	PE->PCR[8].mux = 0x3;	//alt3 = UART5_TX
+	PE->PCR[9].mux = 0x3; 	//alt3 = UART5_RX
+	//GPIO port data direction Port A as output for LEDs (pin 11, 28, 29 and 10), Port E UART5(PTE8 TX, PTE9 RX)
 	GPIOA->PDDR.bit_reg.bit11 = out;
 	GPIOA->PDDR.bit_reg.bit28 = out;
 	GPIOA->PDDR.bit_reg.bit29 = out;
 	GPIOA->PDDR.bit_reg.bit10 = out;
-	//initialization: pns high means all LEDs off
-	GPIOA->PDOR.bit_reg.bit11 = GPIOA->PDOR.bit_reg.bit28 =GPIOA->PDOR.bit_reg.bit29 = GPIOA->PDOR.bit_reg.bit10 = 1;
+	GPIOE->PDDR.bit_reg.bit8 = out; //UART5_TX is an output
+	//No need to configure GPIO pins as an input, by default all pins are inputs
+	//GPIOA->PDDR.bit_reg.bit19 = IN;
+	//GPIOE->PDDR.bit_reg.bit9 = IN //UART5_RX is an input
+	GPIOA->PDOR.bit_reg.bit10 = GPIOA->PDOR.bit_reg.bit29 = GPIOA->PDOR.bit_reg.bit28 = GPIOA->PDOR.bit_reg.bit11 = 0x01;
+
+       // GPIO->PDOR.word_reg=((1<<28)&(byte>>2&1))|((1<<29)&(byte>>1&1))|((1<<10)&(byte>>0&1))|((1<<11)&(byte>>3&1));
 }
 
 
@@ -49,12 +61,10 @@ void gpio_init(void)
 void PORTA_IRQHandler(void)
 {
 	PA->ISFR.word_reg = 0xFFFFFFFF; //clear Interrupt Status Register by writing ones in all bits --- why???
-	toggle_LED1(); //toggle the first LED to indicate interrupt serviced
 	toggle_LED2(); //toggle the second LED to indicate interrupt serviced
-        toggle_LED3(); //toggle the third LED to indicate interrupt serviced
-	toggle_LED4(); //toggle the fourth LED to indicate interrupt serviced
 }
 
-
-
 #endif /* GPIO_H_ */
+
+
+
