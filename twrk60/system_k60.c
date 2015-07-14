@@ -11,21 +11,11 @@
  *
  */
 #include "MK60DZ10.h"
-#include "string.h"
+#include"uart.h"
 
 void SystemInit(void);
-void sysinfo(void);
 
-//int core_clk_mhz = 96;
 int periph_clk_khz;
-
-/**
- * \brief  Clock initialization (96 MHz)
- *
- * \param  void
- *
- * \return void
- */
 
 //Initialize system clocks core_clk_mhz = 96;
 void SystemInit(void)
@@ -37,7 +27,7 @@ void SystemInit(void)
   SIM_SCGC5 |= (SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTB_MASK | SIM_SCGC5_PORTC_MASK | SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTE_MASK);
 
   //uart5 enabled
- // SIM_SCGC1 |= SIM_SCGC1_UART5_MASK;
+  SIM_SCGC1 |= SIM_SCGC1_UART5_MASK;
 
   //defaults
   MCG_C2 = 0;

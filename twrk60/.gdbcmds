@@ -20,15 +20,15 @@ echo resetting target again\n
 echo ----------------------\n
 monitor reset init
 echo \n
-echo setting breakpoint at main.c line 31\n
-b main.c:31
-echo \n
-echo Continuing...\n
-c
-echo \n
-echo We hit a breakpoint\nprinting the value of blink ...\n
-p blink
-echo \n
+#echo setting breakpoint at main.c line 31\n
+#b main.c:38
+#echo \n
+#echo Continuing...\n
+#c
+#echo \n
+#echo We hit a breakpoint\nprinting the value of blink ...\n
+#p blink
+#echo \n
 echo disconnecting from target\n
 echo -------------------------\n
 disconnect

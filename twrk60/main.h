@@ -1,16 +1,18 @@
 /*
  * main.h
  *
- *  Created on: Mar 9, 2015
- *      Author: karibe
+ * Copyright (c) 2015 David Muriuki
+ * see the LICENCE file
  */
 
 #ifndef MAIN_H_
 #define MAIN_H_
 
 #include"gpio.h"
+#include"uart.h"
 
-extern void sysinfo(void);
+uint8_t byte=0x0;
 void delay(void);
-char blink;
+
+
 #endif /* MAIN_H_ */

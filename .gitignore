@@ -34,3 +34,6 @@ example1/main
 
 #output directory
 twrk60/out
+
+#backup files
+*~

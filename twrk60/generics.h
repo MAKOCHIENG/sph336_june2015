@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2015 David Muriuki
+ * see the LICENCE file
+*/
 #ifndef generics_h
 #define generics_h
 #define out 1

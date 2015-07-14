@@ -1,14 +1,9 @@
 #
 # File: Makefile
 #
-# Copyright (c) 2015, karibe
+# Copyright (c) 2015 David Muriuki
+# see the LICENCE file
 #
-# This program is free software. It comes without any warranty, to
-# the extent permitted by applicable law. You can redistribute it
-# and/or modify it under the terms of the Do What You Want
-# To Public License, Version 2, as published by Sam Hocevar. See
-# http://www.wtfpl.net/ for more details.
-
 
 # toolchain specific
 TOOLCHAIN = arm-none-eabi-
@@ -19,7 +14,7 @@ LD = $(TOOLCHAIN)gcc
 OBJCP = $(TOOLCHAIN)objcopy
 AR = $(TOOLCHAIN)ar
 GDB = $(TOOLCHAIN)gdb
-GDBSERVER = openocd -c "interface osbdm" -f /usr/local/share/openocd/scripts/board/twr-k60n512.cfg
+GDBSERVER = openocd -c "interface osbdm" -f /opt/openocd/share/openocd/scripts/board/twr-k60n512.cfg
 OPENOCDPID = $(shell pgrep openocd)
 
 # application specific
