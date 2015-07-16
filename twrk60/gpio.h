@@ -12,10 +12,7 @@
 #include "main.h"
 
 void gpio_init(void);
-<<<<<<< HEAD
-=======
 void display(uint8_t byte);
->>>>>>> 53f506202aedb6121551b4d8202c83280a327bf5
 
 extern void toggle_LEDS(void);
 extern void toggle_LED1(void);
@@ -54,11 +51,6 @@ void gpio_init(void)
 	//GPIOA->PDDR.bit_reg.bit19 = IN;
 	//GPIOE->PDDR.bit_reg.bit9 = IN //UART5_RX is an input
 	GPIOA->PDOR.bit_reg.bit10 = GPIOA->PDOR.bit_reg.bit29 = GPIOA->PDOR.bit_reg.bit28 = GPIOA->PDOR.bit_reg.bit11 = 0x01;
-<<<<<<< HEAD
-
-       // GPIO->PDOR.word_reg=((1<<28)&(byte>>2&1))|((1<<29)&(byte>>1&1))|((1<<10)&(byte>>0&1))|((1<<11)&(byte>>3&1));
-=======
->>>>>>> 53f506202aedb6121551b4d8202c83280a327bf5
 }
 
 
@@ -71,12 +63,6 @@ void PORTA_IRQHandler(void)
 	toggle_LED2(); //toggle the second LED to indicate interrupt serviced
 }
 
-<<<<<<< HEAD
-#endif /* GPIO_H_ */
-
-
-
-=======
 void display(uint8_t byte){
 	GPIOA->PDOR.word_reg = ~(uint32_t)((byte>>0&1)<<11 | (byte>>1&1)<<28 | (byte>>2&1)<<29 | (byte>>3&1)<<10);
 }
@@ -85,4 +71,3 @@ void display(uint8_t byte){
 
 
 
->>>>>>> 53f506202aedb6121551b4d8202c83280a327bf5

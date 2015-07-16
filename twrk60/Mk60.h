@@ -169,7 +169,7 @@ typedef struct{
 PORT PA = (PORT)pta;
 //PORT portB = (PORT)ptb;
 //PORT portC = (PORT)ptc;
-PORT portD = (PORT)ptd;
+//PORT portD = (PORT)ptd;
 PORT PE = (PORT)pte;
 
 //instances of GPIO for ports
