@@ -68,6 +68,3 @@ void display(uint8_t byte){
 }
 
 #endif /* GPIO_H_ */
-
-
-
