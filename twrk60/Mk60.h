@@ -188,4 +188,3 @@ NVIC nvic = (NVIC)nvicbase;
 OSCI_CR osci = (OSCI_CR)0x40065000u;
 
 //UART uart5 = (UART)uart5base;
-
