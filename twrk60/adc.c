@@ -65,32 +65,22 @@ uint8_t ADC_Cal(ADC_MemMapPtr adcmap)
 
   /*Calculate minus-side calibration which is only for differential mode and is ignored for single-ended mode
   cal_var = 0x00;
-<<<<<<< HEAD
-=======
-
->>>>>>> torop/master
   cal_var =  ADC_CLM0_REG(adcmap);
   cal_var += ADC_CLM1_REG(adcmap);
   cal_var += ADC_CLM2_REG(adcmap);
   cal_var += ADC_CLM3_REG(adcmap);
   cal_var += ADC_CLM4_REG(adcmap);
   cal_var += ADC_CLMS_REG(adcmap);
-<<<<<<< HEAD
   cal_var = cal_var/2;
   cal_var |= 0x8000; // Set MSB
-=======
 
   cal_var = cal_var/2;
   cal_var |= 0x8000; // Set MSB
 
->>>>>>> torop/master
   ADC_MG_REG(adcmap) = ADC_MG_MG(cal_var);*/
 
   ADC_SC3_REG(adcmap) &= ~ADC_SC3_CAL_MASK ; /* Clear CAL bit */
 
   return(0);
-<<<<<<< HEAD
 }
-=======
 }
->>>>>>> torop/master

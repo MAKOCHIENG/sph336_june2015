@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * File:		adc16.h
  * Purpose:		ADC bare-metal Code
@@ -364,4 +363,3 @@ void ADC_Read_Cal(ADC_MemMapPtr, tADC_Cal_Blk *);
 void ADC_Write_Cal(ADC_MemMapPtr, tADC_Cal_Blk *);
 
 #endif /* __ADC16_H__ */
->>>>>>> torop/master

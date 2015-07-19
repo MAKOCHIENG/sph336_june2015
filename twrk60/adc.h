@@ -16,8 +16,5 @@ uint16_t ADC1_Read16b(uint8_t channelNumber);
 //Calibration
 uint8_t ADC_Cal(ADC_MemMapPtr adcmap);
 
-<<<<<<< HEAD
 #endif /* ADC1_H_ */
-=======
 #endif /* ADC1_H_ */
->>>>>>> torop/master
