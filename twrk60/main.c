@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * File: main.c
  *
@@ -64,7 +63,6 @@ void delay(void)
       __asm__("nop");
   }
 }
-=======
 /*
  * File: main.c
  *
@@ -130,4 +128,4 @@ void delay(void)
       __asm__("nop");
   }
 }
->>>>>>> torop/master
+}
