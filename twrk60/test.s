@@ -77,4 +77,3 @@ toggle_LED4:
 	LDMIA SP!, {R4-R11}
 	MOV R0, #0
 	MOV PC, LR
-

@@ -77,4 +77,3 @@ uint16_t data_available(void)
 {
 	return data_ready(UART5_BASE_PTR);
 }
-
