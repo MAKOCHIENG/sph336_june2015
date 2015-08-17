@@ -1,5 +1,4 @@
 /*
- * adc1.c
  *
  */
  
@@ -31,8 +30,9 @@ uint16_t ADC1_Read16b(uint8_t channelNumber)
 	AUTO CAL ROUTINE  
 	Calibrates the ADC1_ automatically.
 	Required after reset and before a conversion is initiated
+	16-bit single-ended mode
 ******************************************************************************/
-uint8_t ADC_Cal(ADC_MemMapPtr adcmap)
+uint8_t ADC_CalSingle(ADC_MemMapPtr adcmap)
 {
 
   unsigned int cal_var;
@@ -47,7 +47,7 @@ uint8_t ADC_Cal(ADC_MemMapPtr adcmap)
   	
   if ((ADC_SC3_REG(adcmap)& ADC_SC3_CALF_MASK) == CALF_FAIL ) return(1);    // Check for Calibration fail error and return
 
-  // Calculate plus-side calibration for differential mode or the overall conversion in single-ended mode.
+  // Calculate plus-side calibration for the overall conversion in single-ended mode.
   cal_var = 0x00;
 
   cal_var =  ADC_CLP0_REG(adcmap);
@@ -61,19 +61,6 @@ uint8_t ADC_Cal(ADC_MemMapPtr adcmap)
   cal_var |= 0x8000; // Set MSB
 
   ADC_PG_REG(adcmap) = ADC_PG_PG(cal_var);
-
-
-  /*Calculate minus-side calibration which is only for differential mode and is ignored for single-ended mode
-  cal_var = 0x00;
-  cal_var =  ADC_CLM0_REG(adcmap);
-  cal_var += ADC_CLM1_REG(adcmap);
-  cal_var += ADC_CLM2_REG(adcmap);
-  cal_var += ADC_CLM3_REG(adcmap);
-  cal_var += ADC_CLM4_REG(adcmap);
-  cal_var += ADC_CLMS_REG(adcmap);
-  cal_var = cal_var/2;
-  cal_var |= 0x8000; // Set MSB
-  ADC_MG_REG(adcmap) = ADC_MG_MG(cal_var);*/
 
   ADC_SC3_REG(adcmap) &= ~ADC_SC3_CAL_MASK ; /* Clear CAL bit */
 
