@@ -51,7 +51,7 @@ int main(void)
 
 
 	//initialize system
-/*	SystemInit();
+	SystemInit();
 
 	//initialize UART5 with 8-N-1 settings, 57600 baudrate
 	init_uart(UART5_BASE_PTR,periph_clk_khz,57600);
@@ -86,7 +86,7 @@ int main(void)
 				toggle_LED1();toggle_LED2();toggle_LED3();toggle_LED4();
 				}
 		}
-	}*/
+	}
 }
 
 /*
